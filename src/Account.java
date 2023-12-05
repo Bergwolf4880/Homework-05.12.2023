@@ -1,15 +1,14 @@
 /*Создать класс Account (счет). У сета должны быть следующие поля
 owner (владелец), iban (номер счета), balance, dateOfContract (дата истечения контракта).*/
 
-import java.util.Currency;
-
 public class Account {
     String owner;
-    long iban;
+
+    String iban;
     double balance;
     MyDate dateOfContract;
 
-    public Account(long iban, double balance, Owner owner, MyDate date) {
+    public Account(String iban, double balance, Owner owner, MyDate date) {
 
         this.iban = iban;
         this.balance = balance;
@@ -17,8 +16,20 @@ public class Account {
         this.owner = owner.toString();
     }
 
+
+    public String maskedIban() {
+        String temp = "";
+        String maskedIban = "";
+
+        for (int i = 4; i < iban.length() - 3; i++) {
+            temp += '*';
+            maskedIban = iban.substring(0, 4) + temp + iban.substring(iban.length() - 2);
+        }
+        return maskedIban;
+    }
+
     public String toString() {
-        return this.owner + "Iban: " + this.iban +
+        return this.owner + "Iban: " + maskedIban() +
                 "\n" + "Account balance: " + this.balance +
                 "\n" + "Expires on: " + this.dateOfContract.toString();
 

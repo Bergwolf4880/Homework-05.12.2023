@@ -3,6 +3,7 @@ public class Accounts {
 
 
     public Accounts(Account[] accounts) {
+
         this.accounts = accounts;
     }
 
