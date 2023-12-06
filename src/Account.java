@@ -28,8 +28,20 @@ public class Account {
         return maskedIban;
     }
 
+    public String secureString() {
+        int len = iban.length();
+        String secureIban = "";
+        if (len > 6) {
+            secureIban = maskedIban();
+        } else {
+            secureIban = iban;
+        }
+        return secureIban;
+
+    }
+
     public String toString() {
-        return this.owner + "Iban: " + maskedIban() +
+        return this.owner + "Iban: " + secureString() +
                 "\n" + "Account balance: " + this.balance +
                 "\n" + "Expires on: " + this.dateOfContract.toString();
 
