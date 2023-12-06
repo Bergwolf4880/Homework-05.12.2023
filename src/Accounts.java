@@ -20,7 +20,7 @@ public class Accounts {
 
         for (Account acc : accounts) {
             if (acc.balance > limit) {
-                System.out.println("CLient with Iban: "+acc.iban + ", has " + acc.balance+" € on his balance.\n");
+                System.out.println("CLient with Iban: "+ acc.maskedIban() + ", has " + acc.balance+" € on his balance.\n");
             }
         }
 
